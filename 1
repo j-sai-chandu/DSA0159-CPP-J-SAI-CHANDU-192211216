@@ -1,0 +1,32 @@
+#include <iostream>
+
+class Number {
+private:
+    int value;
+
+public:
+    Number() : value(0) {}
+
+    Number(int val) : value(val) {}
+
+    int getValue() const {
+        return value;
+    }
+
+    // Overloading unary operator '-'
+    Number operator-() const {
+        Number result;
+        result.value = -value;
+        return result;
+    }
+};
+
+int main() {
+    Number num1(10);
+    Number num2 = -num1; // Using overloaded unary operator '-'
+
+    std::cout << "Original Value: " << num1.getValue() << std::endl;
+    std::cout << "Negated Value: " << num2.getValue() << std::endl;
+
+    return 0;
+}
